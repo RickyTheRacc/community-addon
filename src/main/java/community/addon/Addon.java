@@ -1,8 +1,8 @@
-package com.example.addon;
+package community.addon;
 
-import com.example.addon.commands.CommandExample;
-import com.example.addon.hud.HudExample;
-import com.example.addon.modules.ModuleExample;
+import community.addon.commands.CommandExample;
+import community.addon.hud.HudExample;
+import community.addon.modules.ModuleExample;
 import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
@@ -13,13 +13,13 @@ import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 
 public class Addon extends MeteorAddon {
+    public static final Category CATEGORY = new Category("Community Addon");
+    public static final HudGroup HUD_GROUP = new HudGroup("Community Addon");
     public static final Logger LOG = LogUtils.getLogger();
-    public static final Category CATEGORY = new Category("Example");
-    public static final HudGroup HUD_GROUP = new HudGroup("Example");
 
     @Override
     public void onInitialize() {
-        LOG.info("Initializing Meteor Addon Template");
+        LOG.info("Initializing Community Addon");
 
         // Modules
         Modules.get().add(new ModuleExample());
@@ -38,6 +38,6 @@ public class Addon extends MeteorAddon {
 
     @Override
     public String getPackage() {
-        return "com.example.addon";
+        return "community.addon";
     }
 }
