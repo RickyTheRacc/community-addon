@@ -7,4 +7,4 @@
 </ul>
 
 <h3>The readme may be edited past this point!</h4>
-![image](https://github.com/ridglef/community-addon/assets/126202739/eb6cd69a-ce74-43cd-a16f-45a809842586)
+<img src="https://github.com/ridglef/community-addon/assets/126202739/eb6cd69a-ce74-43cd-a16f-45a809842586">
