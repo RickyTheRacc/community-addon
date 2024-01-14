@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LightmapTextureManagerMixin {
     @Inject(method = "getBrightness", at = @At("HEAD"), cancellable = true)
     private static void setBrightness(CallbackInfoReturnable ci) {
-        ci.setReturnValue(0.05f);
+        ci.setReturnValue(0.01f);
     }
 }
