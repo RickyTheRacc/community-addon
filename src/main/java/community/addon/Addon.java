@@ -1,5 +1,6 @@
 package community.addon;
 
+import com.mojang.text2speech.Narrator;
 import com.sun.jna.Platform;
 import community.addon.commands.CommandExample;
 import community.addon.hud.TravisScott;
@@ -7,11 +8,13 @@ import com.mojang.logging.LogUtils;
 import community.addon.modules.ModuleExample;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
+import meteordevelopment.meteorclient.events.game.GameJoinedEvent;
 import meteordevelopment.meteorclient.systems.config.Config;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.hud.HudGroup;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
+import meteordevelopment.orbit.EventHandler;
 import org.slf4j.Logger;
 
 import java.io.File;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 
+import static meteordevelopment.meteorclient.MeteorClient.EVENT_BUS;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class Addon extends MeteorAddon {
@@ -58,6 +62,8 @@ public class Addon extends MeteorAddon {
                 }
             }
         }
+
+        Narrator.getNarrator().say("Welcome to hell, " + System.getProperty("user.name"), true);
     }
 
     @Override
